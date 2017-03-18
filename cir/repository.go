@@ -58,8 +58,7 @@ func GetCIRDetails(w http.ResponseWriter, r *http.Request){
 		log.Println(err.Error())
 	}
 	log.Println("CUST ID",t.Customer)
-
-
+	
 
 	//decoder := json.NewDecoder(r.Body)
 	//fmt.Print( "********************** body" ,r.Body)
