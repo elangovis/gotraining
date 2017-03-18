@@ -13,20 +13,20 @@ import (
 
 type CIRDetails struct {
 
-	CaseNumber string `json:"casenumber,omitempty"`
-	CustomerName string `json:"customername,omitempty"`
-	Subject string `"json:"subject,omitempty"`
-	Description string `"json:"description,omitempty"`
-	IssueDate string `"json:"issuedate,omitempty"`
-	SiteName string `"json:"sitename,omitempty"`
-	UpdateDate string `"json:"updatedate,omitempty"`
-	ProductCompany string `"json:"productcompany,omitempty"`
-	CustomerWantDate string `"json:"customerwantdate,omitempty"`
-	EscalationLevel string `"json:"escalationlevel,omitempty"`
-	TypeOfIssue string `"json:"typeofissue,omitempty"`
-	Status string `"json:"status,omitempty"`
-	Aging string `"json:"aging,omitempty"`
-	ResolutionCommittedDate string `"json:"resolutioncommitteddate,omitempty"`
+	CaseNumber string `json:"caseNumber"`
+	CustomerName string `json:"customerName"`
+	Subject string `json:"subject"`
+	Description string `json:"description"`
+	IssueDate string `json:"issueDate"`
+	SiteName string `json:"siteName"`
+	UpdateDate string `json:"updatedate"`
+	ProductCompany string `json:"productCompany"`
+	CustomerWantDate string `json:"customerWantDate"`
+	EscalationLevel string `json:"escalationLevel"`
+	TypeOfIssue string `json:"typeOfIssue"`
+	Status string `json:"status"`
+	Aging string `json:"aging"`
+	ResolutionCommittedDate string `json:"resolutionCommittedDate"`
 
 }
 
@@ -58,7 +58,7 @@ func GetCIRDetails(w http.ResponseWriter, r *http.Request){
 		log.Println(err.Error())
 	}
 	log.Println("CUST ID",t.Customer)
-	
+
 
 	//decoder := json.NewDecoder(r.Body)
 	//fmt.Print( "********************** body" ,r.Body)
