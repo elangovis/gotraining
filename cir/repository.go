@@ -2,13 +2,13 @@ package cir
 
 import (
 	"fmt"
-	"github.com/gorilla/mux"
-	"encoding/json"
-	//"log"
-	"net/http"
+	//"github.com/gorilla/mux"
+	//"encoding/json"
+	//"net/http"
 
-	"io/ioutil"
-	"log"
+	//"io/ioutil"
+	//"log"
+	"database/sql"
 )
 
 
@@ -20,27 +20,23 @@ import (
 var CIRList []CIRDetails
 var CIRHeader []CIRDetails
 
-type CIRPost struct
-{
-	Customer string
-	//pcId string
-	//loggedSSO string
+
+
+//const DBNAME = "postgres"
+func getDBConnection() (*sql.DB, error) {
+	//db, err := sql.Open("postgres", "dbname=postgres user=postgres password=elan88vish port=5432 sslmode=disable")
+	db, err := sql.Open("postgres", "postgres://postgres:elan88vish@localhost/postgres?sslmode=disable")
+	//db, err := sql.Open("postgres", "postgres://ue84bb544fe404dd9ab5e69d91fde3d16:3e1b76f3abcc4f6a93ec1e177911b74e@10.72.6.143:5432/dc3048d17b2284a5c80002bfc8141f7b2?sslmode=disable")
+	fmt.Print("success conn****")
+	if(err != nil) {
+		fmt.Print("conn err --", err.Error())
+	}
+	return db,  nil
 }
 
+func GetCIRDetailsList(custId string) (map[string][]CIRDetails, error ){
 
-func GetCIRDetails(w http.ResponseWriter, r *http.Request){
 
-	body, err := ioutil.ReadAll(r.Body)
-	if err != nil {
-		log.Println(err.Error())
-	}
-	log.Println(string(body))
-	var t CIRPost
-	err = json.Unmarshal(body, &t)
-	if err != nil {
-		log.Println(err.Error())
-	}
-	log.Println("CUST ID",t.Customer)
 
 
 	//decoder := json.NewDecoder(r.Body)
@@ -67,8 +63,8 @@ func GetCIRDetails(w http.ResponseWriter, r *http.Request){
 
 	//cust := t.customerId
 
-	params := mux.Vars(r);
-	fmt.Print("customerId"+params["customerId"])
+	//params := mux.Vars(r);
+	//fmt.Print("customerId"+params["customerId"])
 	/*cust := params["customerId"]
 
 	var (
@@ -129,6 +125,6 @@ func GetCIRDetails(w http.ResponseWriter, r *http.Request){
 	//x["data"] =  CIRList
 
 	db.Close()
-	//return CIRList, err
-	json.NewEncoder(w).Encode(x)
+	return x, err
+	//json.NewEncoder(w).Encode(x)
 }
