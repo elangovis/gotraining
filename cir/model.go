@@ -18,3 +18,10 @@ type CIRDetails struct {
 	ResolutionCommittedDate string `json:"resolutionCommittedDate"`
 
 }
+
+type CIRPost struct
+{
+	Customer string
+	//pcId string
+	//loggedSSO string
+}
