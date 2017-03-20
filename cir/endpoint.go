@@ -20,6 +20,7 @@ func GetCIRDetails(w http.ResponseWriter, r *http.Request){
 	if err != nil {
 		log.Println(err.Error())
 	}
+	//log.Println("CUST ADD",t)
 	log.Println("CUST ID",t.Customer)
         custId := t.Customer
 
