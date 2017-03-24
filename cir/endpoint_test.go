@@ -9,7 +9,7 @@ import (
 )
 
 func TestGetCIRDetailsList(t *testing.T) {
-
+t.Log("is db conn avail test",dbase.DBCon)
 	var err error
 	dbase.DBCon, err = sql.Open("postgres", "postgres://postgres:elan88vish@localhost/postgres?sslmode=disable")
 	defer dbase.DBCon.Close()
