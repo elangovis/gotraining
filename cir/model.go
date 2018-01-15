@@ -23,3 +23,21 @@ type CIRPost struct
 	//pcId string
 	//loggedSSO string
 }
+
+type SCURVEDETAILS struct {
+	ContractId       	null.String
+        JobNumber        	null.String
+	EpsContractId   	null.String
+	IntExtFlag	        null.String
+	Datadate          	null.String
+	Department_Name   	null.String
+        Train             	null.String
+        Weight            	null.String
+        Filter            	null.String
+        Project        	        null.String
+	Actual            	null.String
+        Forecast          	null.String
+        CumActual        	null.String
+        CumForecast      	null.String
+        CreatedDate	  	null.String
+}

@@ -97,3 +97,54 @@ log.Println("desc===",r.Description.String)
 	return x, err
 	//json.NewEncoder(w).Encode(x)
 }
+
+func StagetoTgt (requestLogId string, projectId string, jobNumber string, blFlag string, intExtFlag string)  (error, string){
+   var err error
+   var status string
+
+   intExtFlagLgc := "fromsql"
+   filterFlagLgc := "fromsql"
+   loopCnt := 0
+   if (filterFlagLgc == "MIA"){
+        loopCnt = 2
+   } else
+   {
+	loopCnt = 1
+   }
+    newFilterFlagLgc := ""
+    for i:=0;i<loopCnt;i++ {
+	if (filterFlagLgc == "MIA" && loopCnt == 1) {
+		newFilterFlagLgc = "MIA_MI"
+
+	}else if (filterFlagLgc == "MIA" && loopCnt == 2){
+	   newFilterFlagLgc = "MIA_A"
+	} else {
+	   newFilterFlagLgc = filterFlagLgc
+	}
+	 minStartDate := "get from sql"
+	 maxEndDate := "get from sql"
+
+	 var filterList []SCURVEDETAILS
+
+	 var dataList []SCURVEDETAILS
+	 for j:=0;j<len(filterList);j++ {
+	    filterList[i].IntExtFlag
+	    filterList[i].Filter
+	    filterList[i].Department_Name
+	    filterList[i].Train
+
+	    // HIT DB with the above values to get the data list
+
+	    for k:=0;k<len(dataList);k++ {
+
+	        var insertList []SCURVEDETAILS
+		insertList[k].ContractId = dataList[j].ContractId
+	    }
+	 }
+
+
+    }
+
+// insert the insert list into DB
+   return err, status
+}
